@@ -2,7 +2,7 @@
   "name": "ticketbooking",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Dharmanshu Gupta",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -25,6 +25,8 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/typeorm": "^10.0.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "driver": "^1.0.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.2",
