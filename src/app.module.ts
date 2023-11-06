@@ -5,6 +5,8 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { MoviesModule } from './movies/movies.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtModule } from '@nestjs/jwt';
+
 
 
 @Module({
@@ -17,7 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: '',  
       database: 'ticketbooking',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Only in development
+      synchronize: false, // Only in development
     })
   ],
   controllers: [AppController],
