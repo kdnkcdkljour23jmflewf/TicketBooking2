@@ -9,4 +9,11 @@ export class MoviesService {
     @InjectRepository(Movie) // Inject the repository for the Movie entity
     private movieRepository: Repository<Movie>,
   ) {}
+
+  async addmovie(titledata:string,releaseDatedata:Date):Promise<Movie>{
+    const movie = new Movie()
+    movie.title = titledata
+    movie.releaseDate = new Date(releaseDatedata)
+    return this.movieRepository.save(movie)
+  }
 }
