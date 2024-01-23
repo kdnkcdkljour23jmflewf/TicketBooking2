@@ -3,8 +3,11 @@ import { Controller,Post,Body, UseGuards,Request } from '@nestjs/common';
 import { LoginService } from './login.service';
 import * as bcrypt from 'bcrypt'
 import { JwtService } from '@nestjs/jwt';
+// import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 
 @Controller('login')
+// @UseGuards(JwtAuthGuard)
+
 export class LoginController {
     constructor(private LoginService:LoginService,
         private readonly jwtService: JwtService,
