@@ -3,10 +3,11 @@ import {MoviesService} from './movies.service';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 
 @Controller('movies')
-@UseGuards(JwtAuthGuard)
+// @UseGuards(JwtAuthGuard)
 export class MoviesController {
     constructor(private MoviesService:MoviesService){}
-    @Post('addmovie')
+    @UseGuards(JwtAuthGuard)
+    @Post('addmovie') 
     async  addmovie(@Request() req) {
         let {
         title = '',

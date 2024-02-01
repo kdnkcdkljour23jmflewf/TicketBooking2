@@ -6,11 +6,16 @@ import { RegisterModule } from './register/register.module';
 import { MoviesModule } from './movies/movies.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
-
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { JwtStrategy } from './guards/jwt.strategy';
 
 
 @Module({
   imports: [LoginModule, RegisterModule, MoviesModule,
+    JwtModule.register({
+      secret: 'your-secret-key',
+      signOptions: { expiresIn: '2h' },
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -23,6 +28,6 @@ import { JwtModule } from '@nestjs/jwt';
     })
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService,JwtAuthGuard, JwtStrategy],
 })
 export class AppModule {} 
