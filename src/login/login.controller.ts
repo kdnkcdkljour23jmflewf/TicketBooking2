@@ -29,7 +29,7 @@ export class LoginController {
             }            
             const payload = { email: email, password: password }
             return {
-                access_token: this.jwtService.sign(payload),
+                access_token: this.jwtService.sign(payload, { expiresIn: '1h' }),
             }
     }
 }

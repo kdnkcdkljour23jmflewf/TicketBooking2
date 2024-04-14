@@ -34,6 +34,8 @@ export class JwtAuthGuard implements CanActivate {
       request.user = decoded;
       return true;
     } catch (err) {
+      console.log(token)
+      console.log(this.jwtService.verify(token))
       return false;
     }
   }

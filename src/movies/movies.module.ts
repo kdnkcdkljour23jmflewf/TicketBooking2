@@ -5,10 +5,12 @@ import { Movie } from './movies.entity';
 import { MoviesService } from './movies.service';
 import { MoviesController } from './movies.controller';
 import { JwtAuthGuard } from '../guards/jwt-auth.guard';
-// import { JwtStrategy } from '../guards/jwt.strategy';
+import { JwtSharedModule } from '../jwt/jwt.module'; // Import the shared module
+
+
 @Module({
   imports: [
-    JwtModule,
+    JwtSharedModule,
         TypeOrmModule.forFeature([Movie])
     ],
   providers: [MoviesService,JwtAuthGuard],
