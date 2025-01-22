@@ -10,15 +10,17 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { JwtStrategy } from './guards/jwt.strategy';
 import { JwtSharedModule } from './jwt/jwt.module';
 import { RouterModule } from '@nestjs/core';
+import { SeatsModule } from './seats/seats.module';
+import { UploadModule } from './upload/upload.module';
 
 
 
 @Module({
-  imports: [LoginModule, RegisterModule, MoviesModule,
+  imports: [LoginModule, RegisterModule, MoviesModule,SeatsModule,
     JwtSharedModule,
     // RouterModule.register([
-    //   path:'register',
-    //   module:RegisterModule
+    //  {path:'rgs',
+    //   module:RegisterModule}
     // ]),
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -29,7 +31,9 @@ import { RouterModule } from '@nestjs/core';
       database: 'ticketbooking',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false, // Only in development
-    })
+    }),
+    SeatsModule,
+    UploadModule
   ],
   controllers: [AppController],
   providers: [AppService,JwtAuthGuard, JwtStrategy],

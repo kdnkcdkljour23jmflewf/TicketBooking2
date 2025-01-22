@@ -12,11 +12,9 @@ export class RegisterController {
     let user_data = await this.RegisterService.userExists(username, email)
     if(!user_data){
         const user = await this.RegisterService.registerUser(username, email, password)
-        return { message: 'User registered successfully', user }  
+        return { message: 'User registered successfully', user }
     }else{
-        return { message: 'User already registered'}  
+        return { message: 'User already registered'}
     }
-  } 
-  
-} 
- 
+  }
+}
